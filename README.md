@@ -60,8 +60,6 @@ accelerate launch --num_processes=8 scripts/train.py --config configs/vla0.yaml
 
 ### Eval
 
-<!-- TODO: batch-eval implementation -->
-
 ```bash
 python scripts/eval.py \
     --model_path ./runs/vla0/checkpoint-xxx \
@@ -84,6 +82,10 @@ python scripts/eval.py \
 | `--log_dir` | Output directory (default: auto-generated with timestamp) |
 
 Note: When running multiple shards in parallel, specify `--log_dir` explicitly to ensure all shards write to the same directory.
+
+### SLURM
+
+For SLURM users, see [`scripts/train.sbatch`](scripts/train.sbatch) and [`scripts/eval.sbatch`](scripts/eval.sbatch). The `eval.sbatch` demonstrates batch evaluation with round-robin shard distribution across multiple GPUs.
 
 ## Configuration
 
