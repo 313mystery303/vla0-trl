@@ -1,6 +1,6 @@
 """Model loading utilities for VLA-0."""
 
-import pickle
+import json
 from typing import Optional
 
 import torch
@@ -93,8 +93,8 @@ class QwenVLActor:
 
         # Load stats
         if stats_path:
-            with open(stats_path, "rb") as f:
-                self.stats = pickle.load(f)
+            with open(stats_path, "r") as f:
+                self.stats = json.load(f)
         else:
             self.stats = None
 
