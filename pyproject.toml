@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vla0-refactored"
-version = "0.1.0"
+version = "0.0.1"
 description = "VLA-0: Building State-of-the-Art VLAs with Zero Modification (Refactored)"
 readme = "README.md"
 requires-python = ">=3.10"
