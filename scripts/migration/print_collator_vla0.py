@@ -24,7 +24,7 @@ for k, v in model_inputs.items():
         print(k, v[0].cpu().numpy().tolist())
 
 # save pixel_values in picture. shape: [4096, 1176]
-# Qwen2-VL: pixel_values is flat [total_patches, patch_dim]
+# Qwen2.5-VL: pixel_values is flat [total_patches, patch_dim]
 # patch_dim = 1176 = 3 (channels) * 2 (temporal_patch) * 14 * 14 (patch_size)
 # image_grid_thw = [batch, 3] tells (temporal, h_patches, w_patches) per sample
 
@@ -36,12 +36,12 @@ t, h, w = image_grid_thw[0]  # [1, 16, 32]
 num_patches = t * h * w  # 512 patches for first image
 patches = pixel_values[:num_patches]  # [512, 1176]
 
-# Qwen2-VL encoding: patches.reshape then transpose(0, 3, 6, 4, 7, 2, 1, 5, 8)
+# Qwen2.5-VL encoding: patches.reshape then transpose(0, 3, 6, 4, 7, 2, 1, 5, 8)
 # Final flatten_patches: [grid_t*grid_h*grid_w, C*temporal_patch*patch_h*patch_w]
 # So 1176 = C(3) * temporal(2) * 14 * 14, in that order
 patch_size = 14
 temporal_patch_size = 2
-merge_size = 2  # Qwen2-VL default
+merge_size = 2  # Qwen2.5-VL default
 
 # After transpose(0,3,6,4,7,2,1,5,8), patches become:
 # (grid_t, grid_h//merge, grid_w//merge, merge, merge, C, temporal, patch_h, patch_w)
