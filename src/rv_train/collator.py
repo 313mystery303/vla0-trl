@@ -79,6 +79,7 @@ class VLACollator:
             labels[i, :sysuser_len] = -100
 
             # Apply action mask augmentation (matches original QwenActor logic)
+            # BUG: original implementation mask not only action token but also spacebar but I maintain the original logic for now.
             seq_len = labels.size(1)
             if random.random() < 0.1:
                 aug_pct = 0.0
