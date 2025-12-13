@@ -114,7 +114,7 @@ See [`configs/vla0.yaml`](configs/vla0.yaml). Key parameters:
 | Parameter | Value |
 |-----------|-------|
 | `learning_rate` | 4e-5 (5e-6 × 8 GPUs) |
-| `num_train_epochs` | 192 |
+| `num_train_epochs` | 32 |
 | `per_device_train_batch_size` | 8 |
 | `horizon` | 8 |
 
