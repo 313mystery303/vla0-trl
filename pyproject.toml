@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vla0-trl"
-version = "0.0.1"
+version = "0.0.2"
 description = "Unofficial reimplementation of VLA-0 using TRL's SFTTrainer."
 readme = "README.md"
 requires-python = ">=3.10"

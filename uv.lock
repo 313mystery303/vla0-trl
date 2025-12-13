@@ -3816,8 +3816,8 @@ wheels = [
 ]
 
 [[package]]
-name = "vla0-refactored"
-version = "0.0.1"
+name = "vla0-trl"
+version = "0.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "datasets" },
